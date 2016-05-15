@@ -7,7 +7,12 @@
 	<dependencies>
 		<dependency org="commons-lang" name="commons-lang" rev="latest.integration" />
 
-		<dependency org="org.jodd" name="jodd-bean" rev="latest.integration" />
+		<dependency org="org.jodd" name="jodd-bean" rev="3.6" />
 		<dependency org="org.jodd" name="jodd-proxetta" rev="latest.integration" />
+
+		<!-- Testing -->
+
+		<dependency org="org.testng" name="testng" rev="latest.integration"/>
+		<!--dependency org="junit" name="junit" rev="latest.integration"/-->
 	</dependencies>
 </ivy-module>

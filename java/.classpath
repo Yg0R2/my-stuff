@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="core"/>
+	<classpathentry kind="src" path="code-kata"/>
 	<classpathentry kind="src" path="design-patterns"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=java&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
