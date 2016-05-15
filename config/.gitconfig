@@ -1,0 +1,7 @@
+[alias]
+	c = "!f(){ git clean -fd && git reset --hard; };f"
+	cp = "!f(){ if [ -z ${1} ]; then echo \"Add a git hach as parameter to cherry-pick\"; return; fi; if [ -z ${2} ]; then OIFS=\"${IFS}\"; IFS=','; for split in ${1}; do git cherry-pick ${split}; done; IFS=\"${OIFS}\"; else git cherry-pick ${1}; git rev-list --reverse --topo-order ${1}..${2} | while read rev; do git cherry-pick ${rev} || break; done; fi; };f"
+	s = status
+	sm = "!f(){ git status -s | awk '{if ($1 == \"M\") print $2}'; };f"
+	rp = "!f(){ git checkout ${1} && git reset --hard ${2} && git push -f origin ${1}; };f"
+	rmf = "!f(){ for file in `git status --short | grep \"^ D\" | awk \"{ print ${2} }\"`; do git rm ${file}; done; };f"
