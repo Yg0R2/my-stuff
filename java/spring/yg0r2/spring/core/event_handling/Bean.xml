@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="helloWorld" class="yg0r2.spring.core.BaseBean">
+		<property name="message" value="Hello World!." />
+	</bean>
+
+	<bean id="contextStartEventHandler" class="yg0r2.spring.core.event_handling.ContextStartEventHandler" />
+
+	<bean id="contextStopEventHandler" class="yg0r2.spring.core.event_handling.ContextStopEventHandler" />
+
+	<bean id="customEventHandler" class="yg0r2.spring.core.event_handling.custom.CustomEventHandler" />
+
+	<bean id="customEventPublisher" class="yg0r2.spring.core.event_handling.custom.CustomEventPublisher" />
+
+</beans>
