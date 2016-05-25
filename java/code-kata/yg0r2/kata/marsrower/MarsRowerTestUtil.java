@@ -5,8 +5,6 @@ package yg0r2.kata.marsrower;
 
 import java.lang.reflect.Field;
 
-import jodd.bean.BeanUtil;
-
 /**
  * @author Yg0R2
  */
@@ -26,7 +24,17 @@ public class MarsRowerTestUtil {
 	}
 
 	public static char getGridChar(Grid grid, int coordinateX, int coordinateY) {
-		StringBuilder[] gridArray = (StringBuilder[]) BeanUtil.getDeclaredProperty(grid, "_grid");
+		StringBuilder[] gridArray = null;
+
+		try {
+			Field field = grid.getClass().getDeclaredField("_grid");
+			field.setAccessible(true);
+
+			gridArray = (StringBuilder[]) field.get(grid);
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 
 		StringBuilder line = gridArray[coordinateY];
 
