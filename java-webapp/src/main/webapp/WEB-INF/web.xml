@@ -17,6 +17,27 @@
 		<url-pattern>/helloweb</url-pattern>
 	</servlet-mapping>
 
+	<!-- Redirect -->
+
+	<servlet>
+		<servlet-name>Redirect</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Redirect</servlet-name>
+		<url-pattern>/finalPage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Redirect</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Redirect</servlet-name>
+		<url-pattern>/redirect</url-pattern>
+	</servlet-mapping>
+
 	<!-- Student/Form -->
 
 	<servlet>
