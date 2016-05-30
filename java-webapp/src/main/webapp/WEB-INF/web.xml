@@ -31,11 +31,28 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Redirect</servlet-name>
-		<url-pattern>/index</url-pattern>
+		<url-pattern>/redirect-index</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Redirect</servlet-name>
 		<url-pattern>/redirect</url-pattern>
+	</servlet-mapping>
+
+	<!-- Static Page -->
+
+	<servlet>
+		<servlet-name>StaticPage</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>StaticPage</servlet-name>
+		<url-pattern>/static-index</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StaticPage</servlet-name>
+		<url-pattern>/staticPage</url-pattern>
 	</servlet-mapping>
 
 	<!-- Student/Form -->

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class WebController {
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/redirect-index", method = RequestMethod.GET)
 	public String index() {
 		return "index";
 	}
