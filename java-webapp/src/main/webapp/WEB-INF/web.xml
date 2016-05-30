@@ -17,4 +17,21 @@
 		<url-pattern>/helloweb</url-pattern>
 	</servlet-mapping>
 
+	<!-- Student/Form -->
+
+	<servlet>
+		<servlet-name>Form</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Form</servlet-name>
+		<url-pattern>/addStudent</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Form</servlet-name>
+		<url-pattern>/student</url-pattern>
+	</servlet-mapping>
+
 </web-app>
