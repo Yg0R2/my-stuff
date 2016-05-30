@@ -65,11 +65,28 @@
 
 	<servlet-mapping>
 		<servlet-name>Form</servlet-name>
-		<url-pattern>/addStudent</url-pattern>
+		<url-pattern>/addStudent-form</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Form</servlet-name>
-		<url-pattern>/student</url-pattern>
+		<url-pattern>/student-form</url-pattern>
+	</servlet-mapping>
+
+	<!-- Student/Exception -->
+
+	<servlet>
+		<servlet-name>Exception</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Exception</servlet-name>
+		<url-pattern>/addStudent-exception</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Exception</servlet-name>
+		<url-pattern>/student-exception</url-pattern>
 	</servlet-mapping>
 
 </web-app>

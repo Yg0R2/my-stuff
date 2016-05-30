@@ -16,17 +16,17 @@ import org.springframework.web.servlet.ModelAndView;
  * @see http://www.tutorialspoint.com/spring/spring_web_mvc_framework.htm
  * @see http://www.tutorialspoint.com/spring/spring_mvc_form_handling_example.htm
  *
- * @access http://localhost:8080/MyStuff-Webapp/student
+ * @access http://localhost:8080/MyStuff-Webapp/student-form
  */
 @Controller
 public class StudentController {
 
-	@RequestMapping(value = "/student", method = RequestMethod.GET)
+	@RequestMapping(value = "/student-form", method = RequestMethod.GET)
 	public ModelAndView student() {
 		return new ModelAndView("student", "command", new Student());
 	}
 
-	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)
+	@RequestMapping(value = "/addStudent-form", method = RequestMethod.POST)
 	public String addStudent(@ModelAttribute("SpringWeb")Student student, ModelMap model) {
 		model.addAttribute("age", student.getAge());
 		model.addAttribute("id", student.getId());
