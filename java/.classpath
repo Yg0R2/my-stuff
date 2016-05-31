@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="core"/>
+	<classpathentry kind="src" path="java"/>
 	<classpathentry kind="src" path="code-kata"/>
 	<classpathentry kind="src" path="design-patterns"/>
 	<classpathentry kind="src" path="spring"/>
