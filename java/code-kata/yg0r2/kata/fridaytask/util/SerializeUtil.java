@@ -14,9 +14,7 @@ package yg0r2.kata.fridaytask.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -67,74 +65,6 @@ public class SerializeUtil {
 		_logger.info("Deerialization finished.");
 
 		_logger.info("There was " + invalidRowCount + " invalid data rows in the file: " + fileName);
-	}
-
-	public static void serializeJSON(String outputFileName, AirportJDBCTemplate airportJDBCTemplate,
-		CityJDBCTemplate cityJDBCTemplate, CountryJDBCTemplate countryJDBCTemplate, TimeZoneInfo timeZoneInfo)
-		throws IOException {
-
-		_logger.info("Start serializing Airport JSON.");
-
-		List<Airport> airports = airportJDBCTemplate.getList();
-
-		StringBuilder contentSB = new StringBuilder(airports.size() * 2);
-
-		for (Airport airport : airports) {
-			City city = cityJDBCTemplate.getById(airport.getCityId());
-
-			Country country = countryJDBCTemplate.getById(city.getCountryId());
-
-			contentSB.append(_serializeJSONObject(airport, city, country, timeZoneInfo));
-			contentSB.append(",");
-		}
-
-		contentSB.deleteCharAt(contentSB.length() - 1);
-
-		Path outputFilePath = Paths.get(outputFileName);
-
-		if (Files.exists(outputFilePath)) {
-			Files.delete(outputFilePath);
-		}
-
-		Files.createFile(outputFilePath);
-
-		Files.write(outputFilePath, contentSB.toString().getBytes(), StandardOpenOption.APPEND);
-
-		_logger.info("Airport JSON serialization finished.");
-		_logger.info("Serialized file location: " + outputFilePath.toString());
-	}
-
-	private static StringBuilder _serializeJSONObject(Airport airport, City city, Country country,
-		TimeZoneInfo timeZoneInfo) {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append("{");
-		sb.append("\"id\":");
-		sb.append(airport.getId());
-		sb.append(",\"iataCode\":\"");
-		sb.append(airport.getIataCode());
-		sb.append("\",\"icaoCode\":\"");
-		sb.append(airport.getIcaoCode());
-		sb.append("\",\"name\":\"");
-		sb.append(airport.getName());
-		sb.append("\",\"fullName\":\"");
-		sb.append(airport.getFullName());
-		sb.append("\",\"cityId\":");
-		sb.append(airport.getCityId());
-		sb.append(",\"countryId\":");
-		sb.append(airport.getCountryId());
-		sb.append(",\"timeZoneName\":\"");
-		sb.append(timeZoneInfo.getTimeZoneInfoId(airport.getId()));
-		sb.append("\",\"location\":{\"longitude\":");
-		sb.append(airport.getLongitude());
-		sb.append(",\"latitude\":");
-		sb.append(airport.getLatitude());
-		sb.append(",\"altitude\":");
-		sb.append(airport.getAltitude());
-		sb.append("}}");
-
-		return sb;
 	}
 
 	private static void _deserializeDATRow(String line, AirportJDBCTemplate airportJDBCTemplate,

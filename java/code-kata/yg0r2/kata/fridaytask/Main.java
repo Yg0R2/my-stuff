@@ -31,11 +31,11 @@ public class Main {
 
 		String dataFileName = resourcesFolder + "airports.dat";
 		String timeZoneFileName = resourcesFolder + "timezoneinfo.json";
-		String outputFileName = _baseFolder + "/target/outputFile.json";
+		String outputFilesRoot = _baseFolder + "/target/";
 
 		Tasks instance = new Tasks(dataFileName, timeZoneFileName);
 
-		instance.serializeAirportJSON(outputFileName);
+		instance.serializeAirportJSON(outputFilesRoot);
 
 		instance.task9A();
 

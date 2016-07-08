@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 
+import yg0r2.core.util.FileUtils;
 import yg0r2.core.util.Pair;
 import yg0r2.core.util.SpringUtils;
 import yg0r2.kata.fridaytask.dao.impl.Airport;
@@ -59,9 +60,55 @@ public class Tasks {
 		_logger.info("DB is ready to use.");
 	}
 
-	public void serializeAirportJSON(String outputFileName) throws IOException {
-		SerializeUtil.serializeJSON(outputFileName, _airportJDBCTemplate, _cityJDBCTemplate, _countryJDBCTemplate,
-			_timeZoneInfo);
+	public void serializeAirportJSON(String outputFilesRoot) throws IOException {
+		_logger.info("Start serializing Airport JSON.");
+
+		List<Airport> airports = _airportJDBCTemplate.getList();
+
+		StringBuilder airportSB = new StringBuilder(airports.size() * 2);
+
+		airports.forEach(airport -> {
+			airportSB.append(airport.toJSON(_timeZoneInfo));
+			airportSB.append(",");
+		});
+
+		airportSB.deleteCharAt(airportSB.length() - 1);
+
+		FileUtils.write(outputFilesRoot + "airports.json", airportSB.toString(), false);
+
+		_logger.info("Finished Serialization of Airport JSON.");
+		_logger.info("Start serializing Country JSON.");
+
+		List<Country> countries = _countryJDBCTemplate.getList();
+
+		StringBuilder countrySB = new StringBuilder(countries.size() * 2);
+
+		countries.forEach(country -> {
+			countrySB.append(country.toJSON());
+			countrySB.append(",");
+		});
+
+		countrySB.deleteCharAt(countrySB.length() - 1);
+
+		FileUtils.write(outputFilesRoot + "countries.json", countrySB.toString(), false);
+
+		_logger.info("Finished Serialization of Country JSON.");
+		_logger.info("Start serializing City JSON.");
+
+		List<City> cities = _cityJDBCTemplate.getList();
+
+		StringBuilder citySB = new StringBuilder(cities.size() * 2);
+
+		cities.forEach(city -> {
+			citySB.append(city.toJSON(_timeZoneInfo));
+			citySB.append(",");
+		});
+
+		citySB.deleteCharAt(citySB.length() - 1);
+
+		FileUtils.write(outputFilesRoot + "cities.json", citySB.toString(), false);
+
+		_logger.info("Finished Serialization of City JSON.");
 	}
 
 	public void task9A() {

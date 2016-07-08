@@ -13,6 +13,7 @@
 package yg0r2.kata.fridaytask.dao.impl;
 
 import yg0r2.core.util.IdUtil;
+import yg0r2.kata.fridaytask.util.TimeZoneInfo;
 
 /**
  * @author Yg0R2
@@ -65,6 +66,23 @@ public class City {
 	 */
 	public void setName(String name) {
 		_name = name;
+	}
+
+	public StringBuilder toJSON(TimeZoneInfo timeZoneInfo) {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("{");
+		sb.append("\"id\":");
+		sb.append(getId());
+		sb.append(",\"name\":\"");
+		sb.append(getName());
+		sb.append("\",\"countryId\":");
+		sb.append(getCountryId());
+		sb.append(",\"timeZoneName\":,\"");
+		sb.append(timeZoneInfo.getTimeZoneInfoId(getId()));
+		sb.append("\"}");
+
+		return sb;
 	}
 
 }

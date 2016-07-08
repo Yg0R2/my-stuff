@@ -13,6 +13,7 @@
 package yg0r2.kata.fridaytask.dao.impl;
 
 import yg0r2.core.util.IdUtil;
+import yg0r2.kata.fridaytask.util.TimeZoneInfo;
 
 /**
  * @author Yg0R2
@@ -190,6 +191,37 @@ public class Airport {
 	 */
 	public void setNd2(String nd2) {
 		_nd2 = nd2;
+	}
+
+	public StringBuilder toJSON(TimeZoneInfo timeZoneInfo) {
+		StringBuilder sb = new StringBuilder(24);
+
+		sb.append("{");
+		sb.append("\"id\":");
+		sb.append(getId());
+		sb.append(",\"iataCode\":\"");
+		sb.append(getIataCode());
+		sb.append("\",\"icaoCode\":\"");
+		sb.append(getIcaoCode());
+		sb.append("\",\"name\":\"");
+		sb.append(getName());
+		sb.append("\",\"fullName\":\"");
+		sb.append(getFullName());
+		sb.append("\",\"cityId\":");
+		sb.append(getCityId());
+		sb.append(",\"countryId\":");
+		sb.append(getCountryId());
+		sb.append(",\"timeZoneName\":\"");
+		sb.append(timeZoneInfo.getTimeZoneInfoId(getId()));
+		sb.append("\",\"location\":{\"longitude\":");
+		sb.append(getLongitude());
+		sb.append(",\"latitude\":");
+		sb.append(getLatitude());
+		sb.append(",\"altitude\":");
+		sb.append(getAltitude());
+		sb.append("}}");
+
+		return sb;
 	}
 
 }
