@@ -1,0 +1,49 @@
+1. Basics of Node.js
+====================
+
+Execute command from cmd:
+	node -e "console.log(Date.now())"
+
+Execute .js files from cmd:
+	node Hello.js
+
+
+Use hppt-server:
+	npm install http-server [-g]
+	http-server -o <- start it and open browser
+
+process.* has lot of good stuffs
+
+
+2. Streams & Networking
+=======================
+
+Debug:
+	npm install node-inspector -g
+
+Streams:
+	4 type of streem: readable, writable, duplex (line TCP/IP read and write), transform (has input and output)
+
+Network:
+	npm install nodemon -g
+		Monitor the filesystem, and if there was a change, restart automatically
+
+HTTP:
+
+Express
+	npm install --save body-parser
+	curl localhost:8080/api/books <- get all books
+	curl -X POST -H 'Content-Type: application/json' -d '{"title": "new Book"}' localhost:8080/api/books <- Add new book
+	curl localhost:8080/api/books/1 <- get book with id = 1
+
+
+3. Web Development, Tools, Testing and Deployment
+=================================================
+
+Oscket.IO
+	client-server communication simplification
+
+	npm install --save express socket.io
+	npm install --save winston <- produce log for machine for example JSON format
+	npm install --save nconf <- helps to configure default value, use JSON files
+	

@@ -1,0 +1,26 @@
+{
+  "name": "nodeCamp",
+  "version": "0.0.3",
+  "description": "Dummy module",
+  "main": "main.js",
+  "preferGlobal": true,
+  "bin": {
+    "save-home": "main.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "colors": "^1.1.2",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "is-file": "^1.0.0",
+    "nconf": "^0.8.4",
+    "socket.io": "^1.4.8",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {},
+  "script": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juriy Bura",
+  "license": "ISC"
+}
