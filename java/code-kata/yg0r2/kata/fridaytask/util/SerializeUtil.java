@@ -121,9 +121,9 @@ public class SerializeUtil {
 		sb.append("\",\"fullName\":\"");
 		sb.append(airport.getFullName());
 		sb.append("\",\"cityId\":");
-		sb.append(city.getId());
+		sb.append(airport.getCityId());
 		sb.append(",\"countryId\":");
-		sb.append(country.getId());
+		sb.append(airport.getCountryId());
 		sb.append(",\"timeZoneName\":\"");
 		sb.append(timeZoneInfo.getTimeZoneInfoId(airport.getId()));
 		sb.append("\",\"location\":{\"longitude\":");
@@ -203,6 +203,7 @@ public class SerializeUtil {
 		airport.setId(airportId);
 		airport.setName(airportName);
 		airport.setCityId(city.getId());
+		airport.setCountryId(country.getId());
 		airport.setIataCode(iataCode);
 		airport.setIcaoCode(icaoCode);
 

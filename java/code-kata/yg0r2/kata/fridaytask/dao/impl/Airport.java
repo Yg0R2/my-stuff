@@ -21,6 +21,7 @@ public class Airport {
 
 	private Double _altitude;
 	private int _cityId;
+	private int _countryId;
 	private String _iataCode;
 	private String _icaoCode;
 	private int _id = IdUtil.getNewId();
@@ -42,6 +43,13 @@ public class Airport {
 	 */
 	public int getCityId() {
 		return _cityId;
+	}
+
+	/**
+	 * @return the countryId
+	 */
+	public int getCountryId() {
+		return _countryId;
 	}
 
 	/**
@@ -119,6 +127,13 @@ public class Airport {
 	 */
 	public void setCityId(int cityId) {
 		_cityId = cityId;
+	}
+
+	/**
+	 * @param countryId the countryId to set
+	 */
+	public void setCountryId(int countryId) {
+		_countryId = countryId;
 	}
 
 	/**

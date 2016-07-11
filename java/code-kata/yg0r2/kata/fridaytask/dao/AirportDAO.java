@@ -19,7 +19,7 @@ import yg0r2.kata.fridaytask.dao.impl.Airport;
  */
 public interface AirportDAO extends BaseDAO<Airport> {
 
-	public void create(String airportName, String iataCode, String icaoCode, int cityId, double longitude,
-		double latitude, double altitude, double nd1, String nd2);
+	public void create(String airportName, String iataCode, String icaoCode, int cityId, int countryId,
+		double longitude, double latitude, double altitude, double nd1, String nd2);
 
 }

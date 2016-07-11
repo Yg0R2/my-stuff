@@ -41,6 +41,7 @@ public class AirportJDBCTemplate extends BaseJDBCTemplate<Airport> implements Ai
 		pairs.add(new Pair<>("iata_code", airport.getIataCode()));
 		pairs.add(new Pair<>("icao_code", airport.getIcaoCode()));
 		pairs.add(new Pair<>("city_id", airport.getCityId()));
+		pairs.add(new Pair<>("country_id", airport.getCountryId()));
 		pairs.add(new Pair<>("longitude", airport.getLongitude()));
 		pairs.add(new Pair<>("latitude", airport.getLatitude()));
 		pairs.add(new Pair<>("altitude", airport.getAltitude()));
@@ -51,8 +52,8 @@ public class AirportJDBCTemplate extends BaseJDBCTemplate<Airport> implements Ai
 	}
 
 	@Override
-	public void create(String airportName, String iataCode, String icaoCode, int cityId, double longitude,
-		double latitude, double altitude, double nd1, String nd2) {
+	public void create(String airportName, String iataCode, String icaoCode, int cityId, int countryId,
+		double longitude, double latitude, double altitude, double nd1, String nd2) {
 
 		List<Pair<String, Object>> pairs = new ArrayList<>();
 
@@ -61,6 +62,7 @@ public class AirportJDBCTemplate extends BaseJDBCTemplate<Airport> implements Ai
 		pairs.add(new Pair<>("iata_code", iataCode));
 		pairs.add(new Pair<>("icao_code", icaoCode));
 		pairs.add(new Pair<>("city_id", cityId));
+		pairs.add(new Pair<>("country_id", countryId));
 		pairs.add(new Pair<>("longitude", longitude));
 		pairs.add(new Pair<>("latitude", latitude));
 		pairs.add(new Pair<>("altitude", altitude));
@@ -86,6 +88,7 @@ public class AirportJDBCTemplate extends BaseJDBCTemplate<Airport> implements Ai
 		sql.append(" icao_code VARCHAR(4) NOT NULL,");
 		// HSQL syntax
 		sql.append(" city_id INT, FOREIGN KEY (city_id) REFERENCES city(id),");
+		sql.append(" country_id INT, FOREIGN KEY (country_id) REFERENCES country(id),");
 		sql.append(" longitude DOUBLE NOT NULL,");
 		sql.append(" latitude DOUBLE NOT NULL,");
 		sql.append(" altitude DOUBLE NOT NULL,");
