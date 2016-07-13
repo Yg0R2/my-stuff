@@ -3,7 +3,8 @@
 	<classpathentry kind="src" path="core"/>
 	<classpathentry kind="src" path="java"/>
 	<classpathentry kind="src" path="java8"/>
-	<classpathentry kind="src" path="code-kata"/>
+	<classpathentry kind="src" path="code-kata/src"/>
+	<classpathentry kind="src" path="code-kata/test"/>
 	<classpathentry kind="src" path="design-patterns"/>
 	<classpathentry kind="src" path="spring"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
