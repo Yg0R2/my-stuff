@@ -1,0 +1,55 @@
+Advanced concurrency
+====================
+
+volatile : helps the compiler to optimize the code
+
+resource hierarchy:
+
+global lock:
+	last solution, because it could transfere a multi thread application into a single thread application
+
+flexible resource locking: <-best?!
+	Check the lock is required, or not before locking something
+	Use limited time lock possession (wait time lock)
+		java.util.concurrent.Lock
+
+StampedLock:
+	from Java8 we have this, this can add multiple read/write locks for a resource.
+
+Callable:
+---------
+
+ExecutorService interface:
+--------------------------
+	execute(Runnable command):
+	List<Future<V>> invokeAll(Collection<? extends Collable> tasks):
+	awaitTermination(long timeout, TimeUnit unit):
+	shutdown():
+	shutdownNod():
+
+Executors:
+----------
+	newFixThreadPool(int nThreads):
+		Set the thread pool size
+	newSingleThreadExecutor():
+		Set the thread pool to 1
+	newCachecThreadPool():
+		Can grow automatically when needed,
+		do not delet the tread object, and try to re-use it to a next thread object
+
+	schedule(Runnable command, long delay, TimeUnit unit)
+	scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)
+
+Completable future:
+-------------------
+	Runnable, Supplier<V>
+
+Synchronizers:
+--------------
+
+Semaphore:
+----------
+
+Phaser:
+-------
+
