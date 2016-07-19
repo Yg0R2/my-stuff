@@ -21,6 +21,9 @@ public class Weather {
 	private float _maxTemperature;
 	private float _minTemperature;
 
+	/**
+	 * Default constructor.
+	 */
 	public Weather() {
 	}
 

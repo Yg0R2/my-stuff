@@ -18,9 +18,11 @@ import java.util.List;
 
 import yg0r2.core.util.FileUtils;
 import yg0r2.kata.data_munging.football.Football;
-import yg0r2.kata.data_munging.football.FootballUtils;
+import yg0r2.kata.data_munging.football.FootballComparator;
+import yg0r2.kata.data_munging.football.FootballMapper;
 import yg0r2.kata.data_munging.weather.Weather;
-import yg0r2.kata.data_munging.weather.WeatherUtils;
+import yg0r2.kata.data_munging.weather.WeatherComparator;
+import yg0r2.kata.data_munging.weather.WeatherMapper;
 
 /**
  * @author Yg0R2
@@ -43,33 +45,31 @@ public class Main {
 	}
 
 	protected void partOne_Weather(Path filePath) throws IOException {
-		List<Weather> weathers = WeatherUtils.deserialize(filePath);
+		List<Weather> weathers = Utils.deserialize(filePath, new WeatherMapper());
 
-		Weather max = WeatherUtils.getMaxTemperatureSpread(weathers);
+		Weather max = Utils.getMax(weathers, new WeatherComparator());
 
 		System.out.println("Maximum temperature spread day is " + max.getDay() + ", with " + max.getTemperatureSpread()
 			+ " temperature spread.");
 
-		Weather min = WeatherUtils.getMinTemperatureSpread(weathers);
+		Weather min = Utils.getMin(weathers, new WeatherComparator());
 
 		System.out.println("Minimum temperature spread day is " + min.getDay() + ", with " + min.getTemperatureSpread()
 			+ " temperature spread.");
 	}
 
 	protected void partTwo_SoocerLeagueTable(Path filePath) throws IOException {
-		List<Football> footballs = FootballUtils.deserialize(filePath);
+		List<Football> footballs = Utils.deserialize(filePath, new FootballMapper());
 
-		Football max = FootballUtils.getWithSBiggestDifferentsAgainstAndFrom(footballs);
+		Football max = Utils.getMax(footballs, new FootballComparator());
 
 		System.out.println(
 			"Biggest diff between from and againts: " + max.getTeamName() + ", " + max.getDiffAgainstAndFrom());
 
-		Football min = FootballUtils.getWithSmallestDifferentsAgainstAndFrom(footballs);
+		Football min = Utils.getMin(footballs, new FootballComparator());
 
 		System.out.println(
 			"Smallest diff between from and againts: " + min.getTeamName() + ", " + min.getDiffAgainstAndFrom());
-
 	}
-
 
 }

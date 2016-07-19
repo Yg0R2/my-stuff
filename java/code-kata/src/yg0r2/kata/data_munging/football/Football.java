@@ -21,6 +21,9 @@ public class Football {
 	private int _from;
 	private String _teamName;
 
+	/**
+	 * Default constructor.
+	 */
 	public Football() {
 	}
 
