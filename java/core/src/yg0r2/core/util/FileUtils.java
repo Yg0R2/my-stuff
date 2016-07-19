@@ -25,6 +25,28 @@ import java.util.zip.ZipFile;
 public class FileUtils {
 
 	/**
+	 * Use the location of the given <code>clazz</code>.class file as the base folder. Appends with the <b>resources</b>
+	 * folder name (which is the required location); then appends with the given <code>fileName</code> parameter.
+	 *
+	 * @param clazz Use the location of this class file.
+	 * @param fileName This is the file name.
+	 * @return With a concatenated location of the class, the 'resources' folder name, and the given file name.
+	 */
+	public static Path getResourcePath(Class<?> clazz, String fileName) {
+		String basePath = clazz.getProtectionDomain().getCodeSource().getLocation().getPath();
+
+		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+			basePath = basePath.substring(1);
+		}
+
+		String classPackagePath = clazz.getPackage().getName().replace(".", "/");
+
+		String filePath = basePath + classPackagePath + "/resources/" + fileName;
+
+		return Paths.get(filePath);
+	}
+
+	/**
 	 * Check the file on the given path is corrupted zip file or not.
 	 *
 	 * @param zipFileLocation
