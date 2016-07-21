@@ -12,12 +12,18 @@
  */
 package yg0r2.core.util;
 
+import static java.security.AccessController.doPrivileged;
+
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.util.zip.ZipFile;
+
+import sun.security.action.GetPropertyAction;
 
 /**
  * @author Yg0R2
@@ -44,6 +50,47 @@ public class FileUtils {
 		String filePath = basePath + classPackagePath + "/resources/" + fileName;
 
 		return Paths.get(filePath);
+	}
+
+	/**
+	 * Download the file from the given <code>url</code> and saves it into the TMP folder with the given
+	 * <code>fileName</code>.
+	 *
+	 * @param url This file will be downloaded.
+	 * @param fileName The downloaded file will be saved with this file name.
+	 * @return With the path of the downloaded file.
+	 * @throws IOException
+	 */
+	public static Path getTemporaryPath(URL url, String fileName) throws IOException {
+		return getTemporaryPath(url, fileName, false);
+	}
+
+	/**
+	 * Download the file from the given <code>url</code> and saves it into the TMP folder with the given
+	 * <code>fileName</code>.
+	 *
+	 * @param url This file will be downloaded.
+	 * @param fileName The downloaded file will be saved with this file name.
+	 * @param force Will delete the file first, then download it.
+	 * @return With the path of the downloaded file.
+	 * @throws IOException
+	 */
+	public static Path getTemporaryPath(URL url, String fileName, boolean force) throws IOException {
+		String tmpFolderName = doPrivileged(new GetPropertyAction("java.io.tmpdir"));
+
+		Path tmpFilePath = Paths.get(tmpFolderName + fileName);
+
+		if (force) {
+			Files.delete(tmpFilePath);
+		}
+
+		if (!Files.exists(tmpFilePath)) {
+			Files.createFile(tmpFilePath);
+
+			Files.copy(url.openStream(), tmpFilePath, StandardCopyOption.REPLACE_EXISTING);
+		}
+
+		return tmpFilePath;
 	}
 
 	/**
