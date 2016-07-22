@@ -6,6 +6,7 @@
 
 	<dependencies>
 		<dependency org="commons-lang" name="commons-lang" rev="latest.integration" />
+		<dependency org="org.apache.commons" name="commons-lang3" rev="latest.integration"/>
 
 		<dependency org="org.jodd" name="jodd-bean" rev="latest.integration" />
 		<dependency org="org.jodd" name="jodd-proxetta" rev="latest.integration" />
