@@ -134,15 +134,19 @@ public class Item {
 
 		BigDecimal price = new BigDecimal(0);
 
-		if (_isOnSaleItem() && amount.divide(_onSaleAmount).intValue() > 0) {
+		if (Validator.isNotNull(_onSaleAmount)) {
 			// Count the onSale part
-			int integerPart = amount.divide(_onSaleAmount).intValue();
-			BigDecimal onSalePart = new BigDecimal(integerPart);
+			int amountPerSaleAmount = amount.intValue() / _onSaleAmount.intValue();
 
-			// Set the amount to the other part if there is more than the the on sale
-			amount = amount.subtract(_onSaleAmount.multiply(onSalePart));
+			if (_isOnSaleItem() && amountPerSaleAmount > 0) {
+				// Count the remaining part
+				BigDecimal onSalePart = new BigDecimal(amountPerSaleAmount);
 
-			price = price.add(_onSalePrice.getPrice(onSalePart));
+				// Set the amount to the other part if there is more than the the on sale
+				amount = amount.subtract(_onSaleAmount.multiply(onSalePart));
+
+				price = price.add(_onSalePrice.getPrice(onSalePart));
+			}
 		}
 
 		price = price.add(_price.getPrice(amount));
