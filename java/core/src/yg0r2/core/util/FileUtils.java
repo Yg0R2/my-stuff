@@ -14,6 +14,7 @@ package yg0r2.core.util;
 
 import static java.security.AccessController.doPrivileged;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -30,26 +31,49 @@ import sun.security.action.GetPropertyAction;
  */
 public class FileUtils {
 
+	public static final String FILE_SEPARATOR = File.separator;
+
 	/**
-	 * Use the location of the given <code>clazz</code>.class file as the base folder. Appends with the <b>resources</b>
-	 * folder name (which is the required location); then appends with the given <code>fileName</code> parameter.
+	 * Get the working directory, appends with the given <code>clazz</code>.class file package as location. Appends with
+	 * the <code>srcFolderName</code>; then appends with the given <code>clazz</code>.java file name.
+	 *
+	 * @param clazz Use the location of this class file.
+	 * @param srcFolderName The src folder location.
+	 * @return With a concatenated location of the working directory, and the <code>srcFolderName</code> folder, and the
+	 *         name of the <code>clazz</code>.
+	 */
+	public static Path getJavaPath(Class<?> clazz, String srcFolderName) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(new File("").getAbsolutePath());
+		sb.append(FILE_SEPARATOR);
+		sb.append(srcFolderName);
+		sb.append(FILE_SEPARATOR);
+		sb.append(_getClassPackageAsLocation(clazz));
+		sb.append(FILE_SEPARATOR);
+		sb.append(clazz.getSimpleName());
+		sb.append(".java");
+
+		return Paths.get(sb.toString());
+	}
+
+	/**
+	 * Use the location of the workspace as base folder. Appends with the <b>resources</b> folder name (which is the
+	 * required location); then appends with the given <code>fileName</code> parameter.
 	 *
 	 * @param clazz Use the location of this class file.
 	 * @param fileName This is the file name.
 	 * @return With a concatenated location of the class, the 'resources' folder name, and the given file name.
 	 */
 	public static Path getResourcePath(Class<?> clazz, String fileName) {
-		String basePath = clazz.getProtectionDomain().getCodeSource().getLocation().getPath();
+		StringBuilder sb = new StringBuilder();
+		sb.append(_getBaseLocation());
+		sb.append(_getClassPackageAsLocation(clazz));
+		sb.append(FILE_SEPARATOR);
+		sb.append("resources");
+		sb.append(FILE_SEPARATOR);
+		sb.append(fileName);
 
-		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-			basePath = basePath.substring(1);
-		}
-
-		String classPackagePath = clazz.getPackage().getName().replace(".", "/");
-
-		String filePath = basePath + classPackagePath + "/resources/" + fileName;
-
-		return Paths.get(filePath);
+		return Paths.get(sb.toString());
 	}
 
 	/**
@@ -127,6 +151,29 @@ public class FileUtils {
 		else {
 			Files.write(outputFilePath, content.getBytes());
 		}
+	}
+
+	/**
+	 * @return With the location of the workspace.
+	 */
+	private static String _getBaseLocation() {
+		String basePath = FileUtils.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+
+		if (OSUtil.isWindows()) {
+			basePath = basePath.substring(1);
+		}
+
+		return basePath;
+	}
+
+	/**
+	 * Replace all dots (.) with file separator (/ or \).
+	 *
+	 * @param clazz The package of this class will be transformed a location.
+	 * @return With a location part based on the package,
+	 */
+	private static String _getClassPackageAsLocation(Class<?> clazz) {
+		return clazz.getPackage().getName().replace(".", FILE_SEPARATOR);
 	}
 
 }
