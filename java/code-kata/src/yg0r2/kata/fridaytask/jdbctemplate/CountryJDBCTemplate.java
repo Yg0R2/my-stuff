@@ -15,8 +15,8 @@ package yg0r2.kata.fridaytask.jdbctemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+import yg0r2.core.Pair;
 import yg0r2.core.util.IdUtil;
-import yg0r2.core.util.Pair;
 import yg0r2.kata.fridaytask.dao.CountryDAO;
 import yg0r2.kata.fridaytask.dao.impl.Country;
 import yg0r2.kata.fridaytask.mapper.CountryMapper;

@@ -17,8 +17,8 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
+import yg0r2.core.Pair;
 import yg0r2.core.util.IdUtil;
-import yg0r2.core.util.Pair;
 import yg0r2.kata.fridaytask.dao.CityDAO;
 import yg0r2.kata.fridaytask.dao.impl.City;
 import yg0r2.kata.fridaytask.mapper.CityMapper;

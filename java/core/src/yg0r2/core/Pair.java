@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package yg0r2.core.util;
+package yg0r2.core;
 
 import java.util.Objects;
 

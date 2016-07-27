@@ -13,8 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.RowMapper;
 
+import yg0r2.core.Pair;
 import yg0r2.core.util.FileUtils;
-import yg0r2.core.util.Pair;
 import yg0r2.core.util.SpringUtils;
 import yg0r2.kata.fridaytask.dao.impl.Airport;
 import yg0r2.kata.fridaytask.dao.impl.City;

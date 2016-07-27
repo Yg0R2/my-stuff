@@ -25,7 +25,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
 
-import yg0r2.core.util.Pair;
+import yg0r2.core.Pair;
 import yg0r2.kata.fridaytask.OrderByOperator;
 import yg0r2.kata.fridaytask.dao.BaseDAO;
 
