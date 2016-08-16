@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="minecraftVersion" class="java.lang.String">
+		<constructor-arg name="original" value="1.7.10" />
+	</bean>
+
+	<bean id="modsLocation" class="yg0r2.minecraft.spring.PathBean">
+		<constructor-arg name="locationTemplate" value="${userHome}/AppData/Roaming/.minecraft/mods/" />
+	</bean>
+
+	<bean id="resourcePacksLocation" class="yg0r2.minecraft.spring.PathBean">
+		<constructor-arg name="locationTemplate" value="${userHome}/AppData/Roaming/.minecraft/resourcepacks/" />
+	</bean>
+
+	<!--
+	MODS
+	-->
+
+	<!-- Additional Buildcraft Objects -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-MC${minecraftVersion}-BC7.1${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="ABO" />
+		<constructor-arg name="URL" value="https://github.com/da3dsoul/Additional-Buildcraft-Objects/releases/download/${version}/${fileName}" />
+		<constructor-arg name="version" value="release4.0.9" />
+		<property name="homePage" value="http://forum.industrial-craft.net/index.php?page=Thread&amp;threadID=10801" />
+	</bean>
+
+	<!-- BigReactors -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${version}.jar" />
+		<constructor-arg name="name" value="BigReactors" />
+		<constructor-arg name="URL" value="http://big-reactors.com/download/alpha/${fileName}" />
+		<constructor-arg name="version" value="0.4.3A" />
+		<property name="homePage" value="http://www.big-reactors.com/#/" />
+	</bean>
+
+	<!-- Bio Materials -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="BioMaterials" />
+		<constructor-arg name="URL" value="http://download2045.mediafire.com/as6p93zculkg/ov0el11938k7suy/${fileName}" />
+		<constructor-arg name="version" value="4.1.1" />
+		<property name="homePage" value="http://forum.industrial-craft.net/index.php?page=Thread&amp;threadID=10801" />
+	</bean>
+
+	<!-- Biomes O' Plenty -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="BiomesOPlenty" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2308/122/${fileName}" />
+		<constructor-arg name="version" value="2.1.0.2027" />
+		<property name="homePage" value="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/1286162-biomes-o-plenty-over-50-new-biomes-with-new-trees" />
+	</bean>
+
+	<!-- Buildcraft -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="buildcraft-${version}.jar" />
+		<constructor-arg name="name" value="BuildCraft" />
+		<constructor-arg name="URL" value="http://www.mod-buildcraft.com/releases/${name}/${version}/${fileName}" />
+		<constructor-arg name="version" value="7.1.17" />
+	</bean>
+
+	<!-- BuildCraftCompat -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="buildcraft-compat-${version}.jar" />
+		<constructor-arg name="name" value="BuildCraftCompat" />
+		<constructor-arg name="URL" value="http://www.mod-buildcraft.com/releases/${name}/${version}/${fileName}" />
+		<constructor-arg name="version" value="7.1.5" />
+	</bean>
+
+	<!-- Chicken Bones - ChickenChunks -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="ChickenChunks" />
+		<constructor-arg name="URL" value="http://chickenbones.net/maven/codechicken/${name}/${minecraftVersion}-${version}/${fileName}" />
+		<constructor-arg name="version" value="1.3.4.19" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/909223" />
+	</bean>
+
+	<!-- Chicken Bones - CodeChickenCore -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="CodeChickenCore" />
+		<constructor-arg name="URL" value="http://chickenbones.net/maven/codechicken/${name}/${minecraftVersion}-${version}/${fileName}" />
+		<constructor-arg name="version" value="1.0.7.47" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/909223" />
+	</bean>
+
+	<!-- Chicken Bones - EnderStorage -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="EnderStorage" />
+		<constructor-arg name="URL" value="http://chickenbones.net/maven/codechicken/${name}/${minecraftVersion}-${version}/${fileName}" />
+		<constructor-arg name="version" value="1.4.7.38" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/909223" />
+	</bean>
+
+	<!-- Chicken Bones - NotEnoughItems -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="NotEnoughItems" />
+		<constructor-arg name="URL" value="http://chickenbones.net/maven/codechicken/${name}/${minecraftVersion}-${version}/${fileName}" />
+		<constructor-arg name="version" value="1.0.5.120" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/909223" />
+	</bean>
+
+	<!-- Chicken Bones - Translocator -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Translocator" />
+		<constructor-arg name="URL" value="http://chickenbones.net/maven/codechicken/${name}/${minecraftVersion}-${version}/${fileName}" />
+		<constructor-arg name="version" value="1.1.2.16" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/909223" />
+	</bean>
+
+	<!-- Chicken Bones - WR-CBE -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="WR-CBE" />
+		<constructor-arg name="URL" value="http://chickenbones.net/maven/codechicken/${name}/${minecraftVersion}-${version}/${fileName}" />
+		<constructor-arg name="version" value="1.4.1.11" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/909223" />
+	</bean>
+
+	<!-- CoFH - CoFHCore -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="CoFHCore" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2320/124/${fileName}" />
+		<constructor-arg name="version" value="3.1.3-327" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- CoFH - CoFHLib -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="CoFHLib" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2319/595/${fileName}" />
+		<constructor-arg name="version" value="1.1.2-182" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- CoFH - CoFHTweaks -->
+	<!-- Not working :(
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="CoFHTweaks" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/773/${fileName}" />
+		<constructor-arg name="version" value="1.1.2-89" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+	-->
+
+	<!-- CoFH - MineFactoryReloaded -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="MineFactoryReloaded" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2277/485/${fileName}" />
+		<constructor-arg name="version" value="2.8.1-174" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- CoFH - NetherOres -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="NetherOres" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2277/488/${fileName}" />
+		<constructor-arg name="version" value="2.3.1-22" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+
+	<!-- CoFH - RedstoneArsenal -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="RedstoneArsenal" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2277/490/${fileName}" />
+		<constructor-arg name="version" value="1.1.2-92" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- CoFH - TabulaRasa -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="TabulaRasa" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2213/557/${fileName}" />
+		<constructor-arg name="version" value="1.0.1-3" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- CoFH - ThermalDynamics -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="ThermalDynamics" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2300/431/${fileName}" />
+		<constructor-arg name="version" value="1.2.0-171" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- CoFH - ThermalExpansion -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="ThermalExpansion" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2321/692/${fileName}" />
+		<constructor-arg name="version" value="4.1.4-247" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- CoFH - ThermalFoundation -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-[${minecraftVersion}]${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="ThermalFoundation" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2320/122/${fileName}" />
+		<constructor-arg name="version" value="1.2.5-115" />
+		<property name="homePage" value="http://teamcofh.com/" />
+	</bean>
+
+	<!-- ComputerCraft -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}${version}.jar" />
+		<constructor-arg name="name" value="ComputerCraft" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2269/339/${fileName}" />
+		<constructor-arg name="version" value="1.75" />
+		<property name="homePage" value="http://www.computercraft.info" />
+	</bean>
+
+	<!-- Extra Utilities -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${version}.jar" />
+		<constructor-arg name="name" value="extrautilities" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2264/383/${fileName}" />
+		<constructor-arg name="version" value="1.2.12" />
+		<property name="homePage" value="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/1443963-extra-utilities-v1-1-0k" />
+	</bean>
+
+	<!-- Forestry -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}_${minecraftVersion}-${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="forestry" />
+		<constructor-arg name="URL" value="http://jenkins.ic2.player.to/job/${name}/lastSuccessfulBuild/artifact/build/dist/${fileName}" />
+		<constructor-arg name="version" value="4.2.15.63" />
+		<property name="homePage" value="https://forestryforminecraft.info/" />
+	</bean>
+
+	<!-- Gravitation Suit -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="GraviSuite" />
+		<constructor-arg name="URL" value="http://forum.industrial-craft.net/index.php?page=Attachment&amp;attachmentID=4519&amp;h=176c2c7530440a440b60a1b9f9a21caeb6589155" />
+		<constructor-arg name="version" value="2.0.3" />
+		<property name="homePage" value="http://forum.industrial-craft.net/index.php?page=Thread&amp;threadID=6915" />
+	</bean>
+
+	<!-- IndustrialCraft -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${version}-experimental.jar" />
+		<constructor-arg name="name" value="industrialcraft" />
+		<constructor-arg name="URL" value="http://jenkins.ic2.player.to/job/IC2_experimental/lastSuccessfulBuild/artifact/build/libs/${fileName}" />
+		<constructor-arg name="version" value="2-2.2.825" />
+		<property name="homePage" value="http://www.industrial-craft.net" />
+	</bean>
+
+	<!-- IronChest -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-universal.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="ironchest" />
+		<constructor-arg name="URL" value="http://files.minecraftforge.net/maven/cpw/mods/${name}/${minecraftVersion}-${version}/${fileName}" />
+		<constructor-arg name="version" value="6.0.62.742" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/981855-" />
+	</bean>
+
+	<!-- JourneyMap -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}-unlimited.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="journeymap" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2296/716/${fileName}" />
+		<constructor-arg name="version" value="5.1.4p1" />
+		<property name="homePage" value="http://journeymap.info" />
+	</bean>
+
+	<!-- Logistics Pipes -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${version}.jar" />
+		<constructor-arg name="name" value="logisticspipes" />
+		<constructor-arg name="URL" value="http://ci.rs485.network/view/Logistics%20Pipes/job/LogisticsPipes-0.9-mc17-bc7/lastSuccessfulBuild/artifact/build/libs/${fileName}" />
+		<constructor-arg name="version" value="0.9.3.126" />
+		<property name="homePage" value="http://www.minecraftforum.net/topic/1831791-" />
+	</bean>
+
+	<!-- Mekanism -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Mekanism" />
+		<constructor-arg name="URL" value="http://aidancbrady.com/wp-content/uploads/mekanism/281-recommended/${fileName}" />
+		<constructor-arg name="version" value="9.1.0.281" />
+		<property name="homePage" value="http://aidancbrady.com/" />
+	</bean>
+
+	<!-- Mekanism Generators -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="MekanismGenerators" />
+		<constructor-arg name="URL" value="http://aidancbrady.com/wp-content/uploads/mekanism/281-recommended/${fileName}" />
+		<constructor-arg name="version" value="9.1.0.281" />
+		<property name="homePage" value="http://aidancbrady.com/" />
+	</bean>
+
+	<!-- Mekanism Tools -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${minecraftVersion}-${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="MekanismTools" />
+		<constructor-arg name="URL" value="http://aidancbrady.com/wp-content/uploads/mekanism/281-recommended/${fileName}" />
+		<constructor-arg name="version" value="9.1.0.281" />
+		<property name="homePage" value="http://aidancbrady.com/" />
+	</bean>
+
+	<!-- Optifine -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}_${minecraftVersion}_${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="OptiFine" />
+		<constructor-arg name="URL" value="http://optifine.net/download?f=${fileName}&amp;x=b7e342d9d3f445ccf31be93e26349cdd" />
+		<constructor-arg name="version" value="HD_U_D6" />
+		<property name="homePage" value="https://optifine.net/home" />
+	</bean>
+
+	<!-- Pam's Clay Spawn -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name} ${version}.jar" />
+		<constructor-arg name="name" value="Pam's Clay Spawn" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2274/122/${fileName}" />
+		<constructor-arg name="version" value="1.7.10b" />
+		<property name="homePage" value="https://minecraft.curseforge.com/members/MatrexsVigil/projects" />
+	</bean>
+
+	<!-- Pam's DesertCraft -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name} ${version}.zip" />
+		<constructor-arg name="name" value="Pam's DesertCraft" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2208/716/${fileName}" />
+		<constructor-arg name="version" value="1.7.10a" />
+		<property name="homePage" value="https://minecraft.curseforge.com/members/MatrexsVigil/projects" />
+	</bean>
+
+	<!-- Pam's Get all the Seeds -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name} ${version}.jar" />
+		<constructor-arg name="name" value="Pam's Get all the Seeds" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2245/851/${fileName}" />
+		<constructor-arg name="version" value="1.7.10a" />
+		<property name="homePage" value="https://minecraft.curseforge.com/members/MatrexsVigil/projects" />
+	</bean>
+
+	<!-- Pam's Harvest the Nether -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name} ${version}.jar" />
+		<constructor-arg name="name" value="Pam's Harvest the Nether" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2241/397/${fileName}" />
+		<constructor-arg name="version" value="1.7.10a" />
+		<property name="homePage" value="https://minecraft.curseforge.com/members/MatrexsVigil/projects" />
+	</bean>
+
+	<!-- Pam's HarvestCraft -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name} ${version}.jar" />
+		<constructor-arg name="name" value="Pam's HarvestCraft" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2270/206/${fileName}" />
+		<constructor-arg name="version" value="1.7.10Lb" />
+		<property name="homePage" value="https://minecraft.curseforge.com/members/MatrexsVigil/projects" />
+	</bean>
+
+	<!-- Pam's Mob Drop Crops -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name} ${version}.zip" />
+		<constructor-arg name="name" value="Pam's Mob Drop Crops" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2208/709/${fileName}" />
+		<constructor-arg name="version" value="1.7.10a" />
+		<property name="homePage" value="https://minecraft.curseforge.com/members/MatrexsVigil/projects" />
+	</bean>
+
+	<!-- Pam's WeeeFlowers -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name} ${version}.zip" />
+		<constructor-arg name="name" value="Pam's WeeeFlowers" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2206/423/${fileName}" />
+		<constructor-arg name="version" value="1.7.2b" />
+		<property name="homePage" value="https://minecraft.curseforge.com/members/MatrexsVigil/projects" />
+	</bean>
+
+	<!-- Project:RED - Base -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="ProjectRed-${minecraftVersion}-${version}-${name}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Base" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/728/${fileName}" />
+		<constructor-arg name="version" value="4.7.0pre12.95" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - Compat -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="ProjectRed-${minecraftVersion}-${version}-${name}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Compat" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/736/${fileName}" />
+		<constructor-arg name="version" value="4.7.0pre12.95" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - Fabrication -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="ProjectRed-${minecraftVersion}-${version}-${name}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Fabrication" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/732/${fileName}" />
+		<constructor-arg name="version" value="4.7.0pre12.95" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - Forge Relocation -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${version}-universal.jar" />
+		<constructor-arg name="name" value="ForgeRelocation" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2249/874/${fileName}" />
+		<constructor-arg name="version" value="0.0.1.4" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - Forge Relocation - FMP Plugin -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${version}-universal.jar" />
+		<constructor-arg name="name" value="ForgeRelocationFMP" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2244/822/${fileName}" />
+		<constructor-arg name="version" value="0.0.1.2" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - Integration -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="ProjectRed-${minecraftVersion}-${version}-${name}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Integration" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/731/${fileName}" />
+		<constructor-arg name="version" value="4.7.0pre12.95" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - Lighting -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="ProjectRed-${minecraftVersion}-${version}-${name}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Lighting" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/733/${fileName}" />
+		<constructor-arg name="version" value="4.7.0pre12.95" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - Mechanical -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="ProjectRed-${minecraftVersion}-${version}-${name}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Mechanical" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/734/${fileName}" />
+		<constructor-arg name="version" value="4.7.0pre12.95" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - MrTJPCore -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="${name}-${version}-universal.jar" />
+		<constructor-arg name="name" value="MrTJPCore" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2279/413/${fileName}" />
+		<constructor-arg name="version" value="1.1.0.33" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Project:RED - World -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="ProjectRed-${minecraftVersion}-${version}-${name}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="World" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2280/735/${fileName}" />
+		<constructor-arg name="version" value="4.7.0pre12.95" />
+		<property name="homePage" value="http://projectredwiki.com" />
+	</bean>
+
+	<!-- Turbo (required to BioMaterials) -->
+	<bean class="yg0r2.minecraft.spring.ModBean">
+		<constructor-arg name="fileName" value="Turbo-${minecraftVersion}-${version}.jar" />
+		<constructor-arg name="minecraftVersion" ref="minecraftVersion" />
+		<constructor-arg name="name" value="Turbo" />
+		<constructor-arg name="URL" value="http://download1618.mediafire.com/cabrh9bizlcg/9mrk2wq4brar0yd/${fileName}" />
+		<constructor-arg name="version" value="1.2.0" />
+		<property name="homePage" value="http://forum.industrial-craft.net/index.php?page=Thread&amp;threadID=10800" />
+	</bean>
+
+	<!--
+	RESOURCE PACKS
+	-->
+
+	<!-- R3D.CRAFT_DR-256x -->
+	<bean class="yg0r2.minecraft.spring.ResourcePackBean">
+		<constructor-arg name="fileName" value="[1.10] R3D CRAFT ${resolution}x (v${version}).zip" />
+		<constructor-arg name="resolution" value="256" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2316/234/${fileName}" />
+		<constructor-arg name="version" value="0.3.0" />
+		<property name="homePage" value="http://www.minecraftforum.net/forums/mapping-and-modding/resource-packs/1241290-r3d-craft-play-minecraft-in-high-definition-15-07" />
+	</bean>
+
+	<!-- Fanver_Universal -->
+	<bean class="yg0r2.minecraft.spring.ResourcePackBean">
+		<constructor-arg name="fileName" value="Fanver_Universal.zip" />
+		<constructor-arg name="URL" value="https://addons-origin.cursecdn.com/files/2227/47/${fileName}" />
+		<property name="homePage" value="https://mods.curse.com/texture-packs/minecraft/227770-soartex-fanver-modded" />
+	</bean>
+
+	<!-- Fanver_Modded_Universal -->
+	<bean class="yg0r2.minecraft.spring.ResourcePackBean">
+		<constructor-arg name="fileName" value="Fanver_Modded_Universal.zip" />
+		<constructor-arg name="URL" value="http://soartex.cursecdn.com/fanver/modded/1.7.x/${fileName}" />
+		<property name="homePage" value="https://soartex.net/" />
+	</bean>
+
+</beans>

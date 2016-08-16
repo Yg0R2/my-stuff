@@ -12,6 +12,10 @@
  */
 package yg0r2.core.util;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -63,7 +67,7 @@ public class SpringUtils {
 	 * @return
 	 */
 	public static <T> T getBean(Class<T> returnType, ApplicationContext applicationContext, String beanId) {
-		return applicationContext.getBean(returnType, beanId);
+		return applicationContext.getBean(beanId, returnType);
 	}
 
 	/**
@@ -104,6 +108,55 @@ public class SpringUtils {
 	 */
 	public static <T> T getBean(Class<T> returnType, String beanFile, String beanId) {
 		return getBean(returnType, getApplicationContext(beanFile), beanId);
+	}
+
+	/**
+	 * Returns with all of the beans, which type is <code>beanType</code> from the given applicationContext.
+	 *
+	 * @param beanType search after these type of beens.
+	 * @param applicationContext get the requested <code>beanType</code> beans from this ApplicationContext.
+	 * @return
+	 */
+	public static <T> List<T> getBeansOfType(Class<T> beanType, ApplicationContext applicationContext) {
+		Map<String, T> map = applicationContext.getBeansOfType(beanType);
+
+		return map.values().stream().collect(Collectors.toList());
+	}
+
+	/**
+	 * Returns with all of the beans, which type is <code>beanType</code> from the <b>Bean.xml</b> file next to the
+	 * given clazz's package.
+	 * 
+	 * @param beanType search after these type of beens.
+	 * @param clazz search after the '<b>Bean.xml</b>' file next to this class' package.
+	 * @return
+	 */
+	public static <T> List<T> getBeansOfType(Class<T> beanType, Class<?> clazz) {
+		return getBeansOfType(beanType, getApplicationContext(clazz));
+	}
+
+	/**
+	 * Returns with all of the beans, which type is <code>beanType</code> from the <b>binFile</b> file next to the given
+	 * clazz's package.
+	 * 
+	 * @param beanType search after these type of beens.
+	 * @param clazz search after the '<code>beanFile</code>' file next to this class' package.
+	 * @param beanFile name of the bean file.
+	 * @return
+	 */
+	public static <T> List<T> getBeansOfType(Class<T> beanType, Class<?> clazz, String beanFile) {
+		return getBeansOfType(beanType, getApplicationContext(clazz, beanFile));
+	}
+
+	/**
+	 * Returns with all of the beans, which type is <code>beanType</code> from the <b>binFile</b>.
+	 * 
+	 * @param beanType search after these type of beens.
+	 * @param beanFile full path of the bean file.
+	 * @return
+	 */
+	public static <T> List<T> getBeansOfType(Class<T> beanType, String beanFile) {
+		return getBeansOfType(beanType, getApplicationContext(beanFile));
 	}
 
 }
