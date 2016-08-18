@@ -1,5 +1,14 @@
 /**
- * 
+ * Copyright 2016 Yg0R2
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
 package yg0r2.java8.datetime;
 
@@ -80,7 +89,7 @@ public class Main {
 		Date currentDate = new Date();
 		System.out.println("Current date: " + currentDate);
 
-		// Get the instant of current  date in terms of milliseconds
+		// Get the instant of current date in terms of milliseconds
 		Instant now = currentDate.toInstant();
 		ZoneId currentZoneId = ZoneId.systemDefault();
 
@@ -89,19 +98,6 @@ public class Main {
 
 		ZonedDateTime zoneDateTime = ZonedDateTime.ofInstant(now, currentZoneId);
 		System.out.println("Zoned date: " + zoneDateTime);
-	}
-
-	public void testDuration() {
-		// Get current date
-		LocalTime currentTime = LocalTime.now();
-		System.out.println("Current time: " + currentTime);
-
-		Duration twoHours = Duration.ofHours(2);
-
-		LocalTime futureTime = currentTime.plus(twoHours);
-		System.out.println("Future time:  " + futureTime);
-
-		System.out.println("Duration: " + Duration.between(currentTime, futureTime));
 	}
 
 	public void testChronoUnitsEnum() {
@@ -121,6 +117,19 @@ public class Main {
 
 		// Add 10 years to the current date
 		System.out.println("Date after ten years: " + today.plus(1, ChronoUnit.DECADES));
+	}
+
+	public void testDuration() {
+		// Get current date
+		LocalTime currentTime = LocalTime.now();
+		System.out.println("Current time: " + currentTime);
+
+		Duration twoHours = Duration.ofHours(2);
+
+		LocalTime futureTime = currentTime.plus(twoHours);
+		System.out.println("Future time:  " + futureTime);
+
+		System.out.println("Duration: " + Duration.between(currentTime, futureTime));
 	}
 
 	public void testLocalDateTime() {
@@ -172,7 +181,8 @@ public class Main {
 
 		System.out.println("Test dateTime: " + dateTime);
 		System.out.println("to LocaleDateTime: " + dateTime.toLocalDateTime());
-		System.out.println("to Europe/Paris zone: " + ZonedDateTime.ofInstant(dateTime.toInstant(), ZoneId.of("Europe/Paris")));
+		System.out.println(
+			"to Europe/Paris zone: " + ZonedDateTime.ofInstant(dateTime.toInstant(), ZoneId.of("Europe/Paris")));
 
 		ZoneId zoneId = ZoneId.of("Europe/Paris");
 		System.out.println("Zone id of Europe/Paris: " + zoneId);

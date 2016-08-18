@@ -66,10 +66,10 @@ public class Country {
 		// The same structure with Java 7 syntax
 		/*for (String countryCode : countryCodes) {
 			Locale locale = new Locale("", countryCode);
-
+		
 			if (locale.getDisplayCountry().equals(getName())) {
 				isoCode = locale.getCountry();
-
+		
 				break;
 			}
 		}*/

@@ -25,20 +25,14 @@ import yg0r2.core.util.Validator;
 public class Item {
 
 	private String _name;
-	private Price _onSalePrice;
 	private BigDecimal _onSaleAmount;
+	private Price _onSalePrice;
 	private Price _price;
 	private boolean _sellOnlyFullUnit;
 	private BigDecimal _stockAmount;
 
 	public Item(String name, Price price, BigDecimal stockAmount) throws InvalidAttributeValueException {
 		this(name, price, stockAmount, null, null);
-	}
-
-	public Item(String name, Price price, Integer stockAmount) throws InvalidAttributeValueException {
-		this(name, price, new BigDecimal(stockAmount));
-
-		_sellOnlyFullUnit = true;
 	}
 
 	public Item(String name, Price price, BigDecimal stockAmount, Price onSalePrice, BigDecimal onSaleAmount)
@@ -98,6 +92,12 @@ public class Item {
 
 		_onSalePrice = onSalePrice;
 		_onSaleAmount = onSaleAmount;
+	}
+
+	public Item(String name, Price price, Integer stockAmount) throws InvalidAttributeValueException {
+		this(name, price, new BigDecimal(stockAmount));
+
+		_sellOnlyFullUnit = true;
 	}
 
 	public Item(String name, Price price, Integer stockAmount, Price onSalePrice, Integer onSaleAmount)

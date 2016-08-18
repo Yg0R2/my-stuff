@@ -1,8 +1,16 @@
 /**
- * 
+ * Copyright 2016 Yg0R2
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
 package yg0r2.java8.lambda;
-
 
 /**
  * @author Yg0R2
@@ -10,6 +18,16 @@ package yg0r2.java8.lambda;
  * @see http://www.tutorialspoint.com/java8/java8_lambda_expressions.htm
  */
 public class Main {
+
+	interface GettingService {
+
+		void sayMessage(String message);
+	}
+
+	interface MathOperation {
+
+		int operation(int a, int b);
+	}
 
 	/**
 	 * @param args
@@ -24,7 +42,9 @@ public class Main {
 		MathOperation subtraction = (a, b) -> a - b;
 
 		// With return statement along with curly braces
-		MathOperation multiplication = (int a, int b) -> { return a * b; };
+		MathOperation multiplication = (int a, int b) -> {
+			return a * b;
+		};
 
 		// Without return statement and without curly braces
 		MathOperation division = (int a, int b) -> a / b;
@@ -46,15 +66,6 @@ public class Main {
 
 	private int _operate(int a, int b, MathOperation mathOperation) {
 		return mathOperation.operation(a, b);
-	}
-
-
-	interface GettingService {
-		void sayMessage(String message);
-	}
-
-	interface MathOperation {
-		int operation(int a, int b);
 	}
 
 }

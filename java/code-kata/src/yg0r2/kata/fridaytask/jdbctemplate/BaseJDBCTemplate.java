@@ -66,13 +66,13 @@ public abstract class BaseJDBCTemplate<T> implements BaseDAO<T> {
 	}
 
 	@Override
-	public List<?> get(String sql, RowMapper<?> rowMapper) {
-		return jdbcTemplate.query(sql, new Object[0], rowMapper);
+	public List<?> get(String sql, Object[] objects, RowMapper<?> rowMapper) {
+		return jdbcTemplate.query(sql, objects, rowMapper);
 	}
 
 	@Override
-	public List<?> get(String sql, Object[] objects, RowMapper<?> rowMapper) {
-		return jdbcTemplate.query(sql, objects, rowMapper);
+	public List<?> get(String sql, RowMapper<?> rowMapper) {
+		return jdbcTemplate.query(sql, new Object[0], rowMapper);
 	}
 
 	@Override

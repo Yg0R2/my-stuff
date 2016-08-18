@@ -29,8 +29,8 @@ public class Supermarket {
 
 	private static final Logger _logger = LoggerFactory.getLogger(Supermarket.class);
 
-	private Map<String, Item> _itemsMap = new HashMap<>();
 	private BigDecimal _budget;
+	private Map<String, Item> _itemsMap = new HashMap<>();
 
 	public Supermarket(List<Item> items, BigDecimal budget) throws InvalidAttributeValueException {
 		if (items.isEmpty()) {

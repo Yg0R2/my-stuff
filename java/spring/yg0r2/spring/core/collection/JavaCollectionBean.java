@@ -1,5 +1,14 @@
 /**
- * 
+ * Copyright 2016 Yg0R2
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
 package yg0r2.spring.core.collection;
 
@@ -22,7 +31,7 @@ public class JavaCollectionBean {
 	 * @return the _addressList
 	 */
 	public List<String> getAddressList() {
-		System.out.println("List Elements: "  + _addressList);
+		System.out.println("List Elements: " + _addressList);
 
 		return _addressList;
 	}
@@ -31,7 +40,7 @@ public class JavaCollectionBean {
 	 * @return the _addressMap
 	 */
 	public Map<String, String> getAddressMap() {
-		System.out.println("Map Elements: "  + _addressMap);
+		System.out.println("Map Elements: " + _addressMap);
 
 		return _addressMap;
 	}
@@ -40,7 +49,7 @@ public class JavaCollectionBean {
 	 * @return the addressProp
 	 */
 	public Properties getAddressProp() {
-		System.out.println("Property Elements: "  + _addressProp);
+		System.out.println("Property Elements: " + _addressProp);
 
 		return _addressProp;
 	}
@@ -49,7 +58,7 @@ public class JavaCollectionBean {
 	 * @return the _addressSet
 	 */
 	public Set<String> getAddressSet() {
-		System.out.println("Set Elements: "  + _addressSet);
+		System.out.println("Set Elements: " + _addressSet);
 
 		return _addressSet;
 	}

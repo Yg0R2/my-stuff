@@ -50,6 +50,16 @@ public class ItemTest {
 	}
 
 	@Test(expected = InvalidAttributeValueException.class)
+	public void testConstructorNameInvalid() throws InvalidAttributeValueException {
+		new Item("", TestUtils.aPrice(), 2);
+	}
+
+	@Test(expected = InvalidAttributeValueException.class)
+	public void testConstructorNameNull() throws InvalidAttributeValueException {
+		new Item(null, TestUtils.aPrice(), 2);
+	}
+
+	@Test(expected = InvalidAttributeValueException.class)
 	public void testConstructorOnSaleAmountInvalud() throws InvalidAttributeValueException {
 		new Item("Test Item Name", TestUtils.aPrice(), 2, TestUtils.aPriceOnSale(), 0);
 	}
@@ -62,16 +72,6 @@ public class ItemTest {
 	@Test(expected = InvalidAttributeValueException.class)
 	public void testConstructorOnSalePriceNull() throws InvalidAttributeValueException {
 		new Item("Test Item Name", TestUtils.aPrice(), 2, null, 2);
-	}
-
-	@Test(expected = InvalidAttributeValueException.class)
-	public void testConstructorNameInvalid() throws InvalidAttributeValueException {
-		new Item("", TestUtils.aPrice(), 2);
-	}
-
-	@Test(expected = InvalidAttributeValueException.class)
-	public void testConstructorNameNull() throws InvalidAttributeValueException {
-		new Item(null, TestUtils.aPrice(), 2);
 	}
 
 	@Test(expected = InvalidAttributeValueException.class)

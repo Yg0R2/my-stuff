@@ -33,7 +33,7 @@ public class AirportMapper implements RowMapper<Airport> {
 		airport.setIataCode(rs.getString("iata_code"));
 		airport.setIcaoCode(rs.getString("icao_code"));
 		airport.setCityId(rs.getInt("city_id"));
-		//airport.setLocationId(rs.getInt("location_id"));
+		// airport.setLocationId(rs.getInt("location_id"));
 		airport.setLongitude(rs.getDouble("longitude"));
 		airport.setLatitude(rs.getDouble("latitude"));
 		airport.setAltitude(rs.getDouble("altitude"));

@@ -25,9 +25,9 @@ import org.slf4j.LoggerFactory;
  */
 public class MainSipermarket {
 
-	private static Random _rnd = new Random();
-
 	private static final Logger _logger = LoggerFactory.getLogger(MainSipermarket.class);
+
+	private static Random _rnd = new Random();
 
 	/**
 	 * @param args

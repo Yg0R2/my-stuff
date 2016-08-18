@@ -38,7 +38,6 @@ public class City {
 		return _id;
 	}
 
-	
 	/**
 	 * @return the name
 	 */
@@ -46,7 +45,6 @@ public class City {
 		return _name;
 	}
 
-	
 	/**
 	 * @param countryId the countryId to set
 	 */
