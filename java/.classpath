@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="core/src" />
-	<classpathentry kind="src" path="core/test" />
-	<classpathentry kind="src" path="minecraft/src" />
-	<classpathentry kind="src" path="java" />
-	<classpathentry kind="src" path="java8" />
-	<classpathentry kind="src" path="code-kata/src" />
-	<classpathentry kind="src" path="code-kata/test" />
-	<classpathentry kind="src" path="design-patterns" />
-	<classpathentry kind="src" path="spring" />
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" />
-	<classpathentry kind="con"
-		path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=java&amp;ivyXmlPath=ivy.xml&amp;confs=*" />
-	<classpathentry kind="output" path="bin" />
-	<classpathentry exclude="**" kind="output" path="target" />
+	<classpathentry kind="src" path="core/src"/>
+	<classpathentry kind="src" path="core/test"/>
+	<classpathentry kind="src" path="minecraft/src"/>
+	<classpathentry kind="src" path="java"/>
+	<classpathentry kind="src" path="java8"/>
+	<classpathentry kind="src" path="code-kata/src"/>
+	<classpathentry kind="src" path="code-kata/test"/>
+	<classpathentry kind="src" path="design-patterns"/>
+	<classpathentry kind="src" path="spring"/>
+	<classpathentry kind="src" path="tmp/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=java&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
+	<classpathentry kind="output" path="target"/>
 </classpath>
