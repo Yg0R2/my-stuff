@@ -16,10 +16,13 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import yg0r2.core.node.ListNode;
+import yg0r2.core.node.Node;
+
 /**
  * @author Yg0R2
  */
-public class NodeTest {
+public class ListNodeTest {
 
 	private Node<String> _underTest;
 
@@ -28,7 +31,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>();
+		_underTest = new ListNode<>();
 		_underTest.add("a");
 
 		// WHEN
@@ -40,7 +43,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		Node<Integer> underTest = new Node<>();
+		Node<Integer> underTest = new ListNode<>();
 		underTest.add(20);
 		underTest.add(70);
 		underTest.add(50);
@@ -49,7 +52,7 @@ public class NodeTest {
 		underTest.add(60);
 
 		// WHEN
-		assertEquals("102030506070", underTest.toString());
+		assertEquals("207050301060", underTest.toString());
 	}
 
 	@Test
@@ -57,7 +60,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>();
+		_underTest = new ListNode<>();
 		_underTest.add("a");
 		_underTest.add("a");
 		_underTest.add("b");
@@ -65,7 +68,7 @@ public class NodeTest {
 		_underTest.add("c");
 
 		// WHEN
-		assertEquals("abc", _underTest.toString());
+		assertEquals("aabbc", _underTest.toString());
 	}
 
 	@Test
@@ -73,7 +76,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>(false);
+		_underTest = new ListNode<>();
 		_underTest.add("b");
 		_underTest.add("a");
 		_underTest.add("c");
@@ -81,7 +84,7 @@ public class NodeTest {
 		_underTest.add("b");
 
 		// WHEN
-		assertEquals("aabbc", _underTest.toString());
+		assertEquals("bacab", _underTest.toString());
 	}
 
 	@Test
@@ -89,7 +92,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>(false);
+		_underTest = new ListNode<>();
 		_underTest.add("a");
 		_underTest.add("a");
 		_underTest.add("b");
@@ -105,13 +108,13 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>();
+		_underTest = new ListNode<>();
 		_underTest.add("c");
 		_underTest.add("b");
 		_underTest.add("a");
 
 		// WHEN
-		assertEquals("abc", _underTest.toString());
+		assertEquals("cba", _underTest.toString());
 	}
 
 	@Test
@@ -119,7 +122,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>();
+		_underTest = new ListNode<>();
 		_underTest.add("g");
 		_underTest.add("e");
 		_underTest.add("j");
@@ -127,7 +130,7 @@ public class NodeTest {
 		_underTest.add("k");
 
 		// WHEN
-		assertEquals("egjkp", _underTest.toString());
+		assertEquals("gejpk", _underTest.toString());
 	}
 
 	@Test
@@ -135,7 +138,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>();
+		_underTest = new ListNode<>();
 		_underTest.add("a");
 		_underTest.add("b");
 		_underTest.add("c");
@@ -149,7 +152,7 @@ public class NodeTest {
 		// GIVEN in setUp
 
 		// THEN
-		_underTest = new Node<>();
+		_underTest = new ListNode<>();
 
 		// WHEN
 		assertEquals("", _underTest.toString());

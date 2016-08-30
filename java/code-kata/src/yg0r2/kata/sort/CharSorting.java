@@ -12,7 +12,8 @@
  */
 package yg0r2.kata.sort;
 
-import yg0r2.core.Node;
+import yg0r2.core.node.Node;
+import yg0r2.core.node.SortedListNode;
 
 /**
  * @author Yg0R2
@@ -26,7 +27,7 @@ public class CharSorting {
 		s = s.replace(".", "");
 		s = s.replace(" ", "");
 
-		Node<Character> node = new Node<>(false);
+		Node<Character> node = new SortedListNode<>();
 
 		s.chars().forEach(c -> node.add((char) c));
 
