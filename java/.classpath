@@ -9,6 +9,8 @@
 	<classpathentry kind="src" path="code-kata/test" />
 	<classpathentry kind="src" path="design-patterns" />
 	<classpathentry kind="src" path="spring" />
+	<classpathentry kind="src" path="graphics/src" />
+	<classpathentry kind="src" path="graphics/test" />
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" />
 	<classpathentry kind="con"
 		path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=java&amp;ivyXmlPath=ivy.xml&amp;confs=*" />
