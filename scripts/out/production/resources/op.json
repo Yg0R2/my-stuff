@@ -1,0 +1,28 @@
+[
+  {
+    "key": "default",
+    "value": "w:\\projects\\"
+  },
+
+  // HCOM
+
+  {
+    "key": "ba",
+    "value":"w:\\projects\\HCom\\bookingapp\\"
+  },
+  {
+    "key": "cap",
+    "value":"w:\\projects\\HCom\\HWEB\\commonassetspack\\"
+  },
+
+  // My stuffs
+
+  {
+    "key": "mentoring",
+    "value": "w:\\projects\\L2+\\mentoring\\"
+  },
+  {
+    "key": "my",
+    "value": "w:\\projects\\my-stuff\\"
+  }
+]

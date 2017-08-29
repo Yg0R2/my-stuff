@@ -1,0 +1,28 @@
+group 'scripts'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'yg0r2.scripts.Main'
+    }
+
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+dependencies {
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.1'
+
+    testCompile group: 'org.testng', name: 'testng', version: '6.11'
+}
