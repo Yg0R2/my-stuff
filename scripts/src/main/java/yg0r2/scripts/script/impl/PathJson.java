@@ -1,11 +1,11 @@
 package yg0r2.scripts.script.impl;
 
-public class OpenJsonObject {
+public class PathJson {
 
     private String key;
     private String value;
 
-    public OpenJsonObject(String key, String value) {
+    public PathJson(String key, String value) {
         this.key = key;
         this.value = value;
     }

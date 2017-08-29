@@ -6,7 +6,7 @@ import java.util.Optional;
 public enum ScriptType {
 
     OP("op", "path"),
-    START("start");
+    BA("ba");
 
     private String exceptionalArg;
     private String value;

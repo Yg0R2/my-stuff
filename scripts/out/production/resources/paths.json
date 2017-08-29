@@ -7,6 +7,10 @@
   // HCOM
 
   {
+    "key": "apache",
+    "value":"w:\\apache2-httpd"
+  },
+  {
     "key": "ba",
     "value":"w:\\projects\\HCom\\bookingapp"
   },
