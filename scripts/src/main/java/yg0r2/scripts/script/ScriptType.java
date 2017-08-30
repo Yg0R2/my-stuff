@@ -5,16 +5,19 @@ import java.util.Optional;
 
 public enum ScriptType {
 
-    OP("op", "path"),
-    BA("ba");
+    APACHE("apache"),
+    BA("ba"),
+    CAP("cap"),
+    CVC("cvc"),
+    OP("op", "path");
 
     private String exceptionalArg;
     private String value;
 
     public static ScriptType get(String value) {
         Optional<ScriptType> optionalScriptType = Arrays.stream(values())
-                .filter(scriptType -> scriptType.value.equals(value))
-                .findFirst();
+            .filter(scriptType -> scriptType.value.equals(value))
+            .findFirst();
 
         if (!optionalScriptType.isPresent()) {
             throw new IllegalArgumentException("The requested '" + value + "' ScriptType is not valid.");
