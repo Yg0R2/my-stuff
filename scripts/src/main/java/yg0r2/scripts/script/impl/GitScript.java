@@ -6,7 +6,7 @@ import yg0r2.scripts.script.model.Script;
 
 import java.io.File;
 
-public class GitScript extends Script {
+public class GitScript implements Script {
 
     private File[] gitRepoDirs;
     /*
@@ -19,6 +19,11 @@ public class GitScript extends Script {
 
     @Override
     public void execute(Args args) throws ScriptException {
+
+    }
+
+    @Override
+    public void printUsage() {
 
     }
 

@@ -2,18 +2,24 @@ package yg0r2.scripts.script.impl;
 
 import org.apache.commons.lang3.ArrayUtils;
 import yg0r2.scripts.args.Args;
+import yg0r2.scripts.script.ScriptKeys;
+import yg0r2.scripts.script.ScriptType;
 import yg0r2.scripts.script.exception.ScriptException;
 import yg0r2.scripts.script.model.Script;
-import yg0r2.scripts.util.PathJsonUtils;
+import yg0r2.scripts.script.util.ScriptUtils;
 
 import java.io.File;
 
-public class ApacheScript extends Script {
+public class ApacheScript implements Script {
 
-    private File apacheDir;
+    private File apacheBinDir;
+    private File apachePidFile;
 
     public ApacheScript() {
-        this.apacheDir = PathJsonUtils.getWorkingDirectory("apache");
+        File apacheDir = ScriptUtils.getWorkingDirectory(ScriptType.APACHE.toString());
+
+        apacheBinDir = new File(apacheDir, "bin");
+        apachePidFile = new File(apacheDir, "logs\\httpd.pid");
     }
 
     @Override
@@ -23,25 +29,26 @@ public class ApacheScript extends Script {
         }
     }
 
+    @Override
+    public void printUsage() {
+        System.out.println("apache usage");
+    }
+
     private boolean isApacheRunning() {
-        File pidFile = new File(apacheDir, "logs\\httpd.pid");
+        /*if (apachePidFile.canWrite()) {
+            apachePidFile.delete();
+        }*/
 
-        if (pidFile.canWrite()) {
-            pidFile.delete();
-        }
-
-        return pidFile.exists();
+        return apachePidFile.exists();
     }
 
     private void startApache() throws ScriptException {
-        File apacheBinDir = new File(apacheDir, "bin");
-
-        String[] cmd = ArrayUtils.addAll(START_NEW_CMD_COMMANDS, new String[] {"devconf_httpd.bat && exit"});
+        String[] cmd = ArrayUtils.addAll(ScriptKeys.START_NEW_CMD_COMMANDS, new String[] {"devconf_httpd.bat && exit"});
 
         ProcessBuilder processBuilder = new ProcessBuilder(cmd);
         processBuilder.directory(apacheBinDir);
 
-        executeProcess(processBuilder);
+        ScriptUtils.executeProcess(processBuilder);
     }
 
 }

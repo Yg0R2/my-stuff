@@ -1,36 +1,22 @@
-[
-  {
-    "key": "default",
-    "value": "w:\\projects"
-  },
+{
+  "default": "w:\\projects",
 
   // HCOM
 
-  {
-    "key": "apache",
-    "value":"w:\\apache2-httpd"
-  },
-  {
-    "key": "ba",
-    "value":"w:\\projects\\HCom\\bookingapp"
-  },
-  {
-    "key": "cap",
-    "value":"w:\\projects\\HCom\\HWEB\\commonassetspack"
-  },
+  "apache": "w:\\apache2-httpd",
+
+  "ba": "w:\\projects\\HCom\\COP\\BookingApp",
+
+  "cap": "w:\\projects\\HCom\\HWEB\\CommonAssetsPack",
+  "cs": "w:\\projects\\HCom\\HWEB\\ComponentSvc",
+  "duip": "w:\\projects\\HCom\\HWEB\\DionysusUIPack",
+  "mcp": "w:\\projects\\HCom\\HWEB\\MvtConfigurationPack",
+
+  "ccp": "w:\\projects\\HCom\\SHARED\\common-config-pack",
 
   // My stuffs
 
-  {
-    "key": "mentoring",
-    "value": "w:\\projects\\L2+\\mentoring"
-  },
-  {
-    "key": "my",
-    "value": "w:\\projects\\my-stuff"
-  },
-  {
-    "key": "scripts",
-    "value": "w:\\projects\\my-stuff\\scripts"
-  }
-]
+  "mentoring": "w:\\projects\\L2+\\mentoring",
+  "my": "w:\\projects\\my-stuff",
+  "scripts": "w:\\projects\\my-stuff\\scripts"
+}

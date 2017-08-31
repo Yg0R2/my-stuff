@@ -6,31 +6,61 @@ import org.apache.maven.shared.invoker.InvocationRequest;
 import org.apache.maven.shared.invoker.Invoker;
 import yg0r2.scripts.args.Args;
 import yg0r2.scripts.args.parser.ArgParser;
+import yg0r2.scripts.args.parser.exception.ParserException;
 import yg0r2.scripts.script.ScriptFactory;
+import yg0r2.scripts.script.ScriptKeys;
+import yg0r2.scripts.script.exception.ScriptException;
 import yg0r2.scripts.script.model.Script;
+import yg0r2.scripts.script.util.ScriptUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         normal(args);
         //test();
     }
 
-    private static void normal(String[] args) throws Exception {
-        ArgParser parser = new ArgParser(args);
-        Args scriptArgs = parser.parse();
+    private static void normal(String[] args) {
+        Args scriptArgs = null;
+        try {
+            ArgParser parser = new ArgParser(args);
 
-        Script script = ScriptFactory.getScript(scriptArgs.getScriptType());
+            scriptArgs = parser.parse();
+        }
+        catch (ParserException e) {
+            Set<String> scriptNames = ScriptUtils.getScriptNames();
 
-        script.execute(scriptArgs);
+            System.out.println(scriptNames.stream().collect(Collectors.joining(", ")));
+        }
+
+        Script script = null;
+        try {
+            script = ScriptFactory.getScript(scriptArgs.getScriptType());
+        }
+        catch (ScriptException e) {
+            System.out.println(e.getMessage());
+        }
+
+        if (scriptArgs.getBooleanValue(ScriptKeys.OPTION_HELP)) {
+            script.printUsage();
+        }
+        else {
+            try {
+                script.execute(scriptArgs);
+            }
+            catch (ScriptException e) {
+                script.printUsage();
+            }
+        }
     }
 
     private static void test() throws Exception {

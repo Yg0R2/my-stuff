@@ -4,7 +4,7 @@ import yg0r2.scripts.args.Args;
 import yg0r2.scripts.script.exception.ScriptException;
 import yg0r2.scripts.script.model.Script;
 
-public class ComponentSvcScript extends Script {
+public class ComponentSvcScript implements Script {
 
     @Override
     public void execute(Args args) throws ScriptException {
@@ -14,6 +14,11 @@ public class ComponentSvcScript extends Script {
 
         //...bookingapp-web\src\main\resources\conf\environment\env_rules_development.properties
         //HEADER_SERVICE_URL=http://localhost:61535/component_svc
+    }
+
+    @Override
+    public void printUsage() {
+
     }
 
 }
