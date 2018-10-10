@@ -1,0 +1,37 @@
+[merge]
+	tool = kdiff3
+[diff]
+	guitool = kdiff3
+[core]
+	editor = \"C:/Program Files (x86)/GitExtensions/GitExtensions.exe\" fileeditor
+	longpaths = true
+	autocrlf = true
+	symlinks = false
+[mergetool "kdiff3"]
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+	keepBackup = false
+[difftool "kdiff3"]
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+[user]
+	name = Tibor Kovacs
+	email = v-tikovacs@hotels.com
+[alias]
+	ac = "!f(){ git add $1 && git commit -m \"$2\"; };f"
+	aca = "!f(){ git add . && git commit --amend; };f"
+	c = "!f(){ git clean -fd && git reset --hard; };f"
+	cb = "!f(){ git branch | grep -v 'master' | grep -v 'feature/development' | git branch -D $( awk '{ print $1 }' ) || true && for branch in `git branch -r | awk -Forigin/ '/origin/ { print $2 }' | grep -v 'HEAD\\|master\\|feature/development'`; do git push -f origin :$branch; done || true && git remote prune origin; };f"
+	cp = cherry-pick
+	s = status
+	d = diff
+	rmf = "!f(){ for file in `git status --short | grep '^ D' | awk '{ print ${2} }'`; do git rm ${file}; done; };f"
+	sync = "!f() { . ~/.bashrc && syncRepository; }; f"
+[http]
+	sslverify = false
+[url "https://"]
+	insteadOf = http://
+[pull]
+	rebase = false
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
